@@ -3,7 +3,7 @@
     <v-toolbar color="blue lighten-2" dark>
       <v-toolbar-title class="mr-4">ORDER APP</v-toolbar-title>
       <v-toolbar-items>
-        <v-btn color="blue lighten-2">
+        <v-btn color="blue lighten-2" v-if="isLoggedIn">
           orders
         </v-btn>
       </v-toolbar-items>
@@ -11,16 +11,22 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items flat>
-        <v-btn color="blue lighten-2" to="/register">Register</v-btn>
-        <v-btn color="blue lighten-2">Login</v-btn>
-        <v-btn color="blue lighten-2">Logout</v-btn>
+        <v-btn color="blue lighten-2" to="/register" v-if="!isLoggedIn">Register</v-btn>
+        <v-btn color="blue lighten-2" v-if="!isLoggedIn">Login</v-btn>
+        <v-btn color="blue lighten-2" v-if="isLoggedIn">Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters('authentication', ['isLoggedIn']),
+  },
+};
 </script>
 
 <style scoped>

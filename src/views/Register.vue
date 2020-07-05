@@ -12,6 +12,8 @@
         :value="registerPassword" @input="setRegisterPassword" type="password">
         </v-text-field>
 
+        <v-alert type="error" :value="registerError"> {{registerError}} </v-alert>
+
         <v-btn color="blue" dark @click="register">Register</v-btn>
 
       </v-flex>
@@ -24,12 +26,12 @@ import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   computed: {
-    ...mapState('authentication', ['registerEmail', 'registerPassword']),
+    ...mapState('authentication', ['registerEmail', 'registerPassword', 'registerError']),
   },
   methods: {
     ...mapMutations('authentication', ['setRegisterEmail', 'setRegisterPassword']),
+    ...mapActions('authentication', ['register']),
   },
-  ...mapActions('authentication', ['register']),
 };
 </script>
 
