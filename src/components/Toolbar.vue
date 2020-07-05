@@ -13,18 +13,21 @@
       <v-toolbar-items flat>
         <v-btn color="blue lighten-2" to="/register" v-if="!isLoggedIn">Register</v-btn>
         <v-btn color="blue lighten-2" v-if="!isLoggedIn">Login</v-btn>
-        <v-btn color="blue lighten-2" v-if="isLoggedIn">Logout</v-btn>
+        <v-btn color="blue lighten-2" v-if="isLoggedIn" @click="logout">Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
     ...mapGetters('authentication', ['isLoggedIn']),
+  },
+  methods: {
+    ...mapActions('authentication', ['logout']),
   },
 };
 </script>

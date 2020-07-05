@@ -11,6 +11,10 @@ export default {
     token: null,
   },
   actions: {
+    logout({ commit }) {
+      commit('setToken', null);
+      router.push('/login');
+    },
     register({ commit, state }) {
       return HTTP().post('/auth/register', {
         email: state.registerEmail,
@@ -27,7 +31,7 @@ export default {
   },
   getters: {
     isLoggedIn(state) {
-      return !state.token;
+      return !!state.token;
     },
   },
   mutations: {
