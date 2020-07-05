@@ -8,6 +8,9 @@ export default {
     registerEmail: 'ninja@mail.com',
     registerPassword: 'world',
     registerError: null,
+    loginEmail: 'ninja@mail.com',
+    loginPassword: 'world',
+    loginError: null,
     token: null,
   },
   actions: {
@@ -28,6 +31,20 @@ export default {
           commit('setRegisterError', 'An error occured while creating your account');
         });
     },
+    login({ commit, state }) {
+      commit('setLoginError', null);
+      return HTTP().post('/auth/login', {
+        email: state.loginEmail,
+        password: state.loginPassword,
+      })
+        .then(({ data }) => {
+          commit('setToken', data.token);
+          router.push('/');
+        })
+        .catch(() => {
+          commit('setLoginError', 'An error occured while tring to Login');
+        });
+    },
   },
   getters: {
     isLoggedIn(state) {
@@ -46,6 +63,15 @@ export default {
     },
     setRegisterPassword(state, password) {
       state.registerPassword = password;
+    },
+    setLoginError(state, error) {
+      state.loginError = error;
+    },
+    setLoginEmail(state, email) {
+      state.loginEmail = email;
+    },
+    setLoginPassword(state, password) {
+      state.loginPassword = password;
     },
   },
 };
