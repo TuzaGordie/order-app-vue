@@ -19,6 +19,7 @@ export default {
       router.push('/login');
     },
     register({ commit, state }) {
+      commit('setRegisterError', null);
       return HTTP().post('/auth/register', {
         email: state.registerEmail,
         password: state.registerPassword,
