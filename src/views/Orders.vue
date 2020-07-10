@@ -5,24 +5,25 @@
         <Orders></Orders>
       </v-flex>
 
-      <v-flex xs8 class="pl-4">
-        <Panel title="Items">
-          <h1>Testing</h1>
-        </Panel>
+      <v-flex xs8 class="pl-4" v-if="currentOrder">
+        <Items></Items>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-/* eslint-disable import/no-cycle */
+
 import Orders from '@/components/Orders.vue';
-import { mapGetters } from 'vuex';
+import Items from '@/components/Items.vue';
+import { mapGetters, mapState } from 'vuex';
+// eslint-disable-next-line import/no-cycle
 import router from '../router';
 
 export default {
   components: {
     Orders,
+    Items,
   },
 
   mounted() {
@@ -31,6 +32,7 @@ export default {
     }
   },
   computed: {
+    ...mapState('orders', ['currentOrder']),
     ...mapGetters('authentication', ['isLoggedIn']),
   },
 };

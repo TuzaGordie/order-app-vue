@@ -11,9 +11,11 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items flat>
-        <v-btn color="blue lighten-2" to="/register" v-if="!isLoggedIn">Register</v-btn>
-        <v-btn color="blue lighten-2" to="/login" v-if="!isLoggedIn">Login</v-btn>
-        <v-btn color="blue lighten-2" v-if="isLoggedIn" @click="logout">Logout</v-btn>
+        <v-btn depressed color="blue lighten-2" to="/register" v-if="!isLoggedIn">Register</v-btn>
+        <v-btn depressed color="blue lighten-2" to="/login" v-if="!isLoggedIn">Login</v-btn>
+        <v-btn depressed color="blue lighten-2" v-if="isLoggedIn" @click="logout">
+        Logout
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </div>

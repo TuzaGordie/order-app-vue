@@ -9,6 +9,7 @@
       :isEditMode="order.isEditMode"
       :name="order.name"
       @onInput="setOrderName({ order, name: $event })"
+      @onClick="orderClicked(order)"
       @onEdit="setEditMode(order)"
       @onSave="saveOrder(order)"
       @onDelete="deleteOrder(order)"
@@ -40,16 +41,24 @@ export default {
     ...mapState('orders', ['newOrderName', 'orders']),
   },
   methods: {
+    orderClicked(order) {
+      this.setCurrentOrder(order);
+      this.fetchItemsForOrder(order);
+    },
     ...mapMutations('orders', [
       'setNewOrderName',
       'setEditMode',
       'setOrderName',
+      'setCurrentOrder',
     ]),
     ...mapActions('orders', [
       'createOrder',
       'fetchOrders',
       'saveOrder',
       'deleteOrder',
+    ]),
+    ...mapActions('items', [
+      'fetchItemsForOrder',
     ]),
   },
 };

@@ -7,6 +7,7 @@ export default {
   namespaced: true,
   state: {
     orders: [],
+    currentOrder: null,
     newOrderName: null,
   },
   actions: {
@@ -42,6 +43,9 @@ export default {
 
   },
   mutations: {
+    setCurrentOrder(state, order) {
+      state.currentOrder = order;
+    },
     setNewOrderName(state, name) {
       state.newOrderName = name;
     },

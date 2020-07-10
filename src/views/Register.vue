@@ -37,6 +37,6 @@ export default {
 
 <style scoped>
 .register {
-  margin-top: 100px;
+  margin-top: 15rem;
 }
 </style>
