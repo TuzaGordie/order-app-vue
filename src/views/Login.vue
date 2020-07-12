@@ -37,6 +37,6 @@ export default {
 
 <style scoped>
 .login {
-  margin-top: 15rem;
+  margin-top: 10rem;
 }
 </style>
