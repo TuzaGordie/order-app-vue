@@ -1,18 +1,35 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+/* eslint-disable import/no-extraneous-dependencies */
+// const express = require('express');
+// const path = require('path');
+// const history = require('connect-history-api-fallback');
+
+// const app = express();
+
+// const staticFileMiddleware = express.static(path.join(`${__dirname}/dist`));
+
+// app.use(staticFileMiddleware);
+// app.use(history({
+//   disableDotRule: true,
+//   verbose: true,
+// }));
+// app.use(staticFileMiddleware);
+
+// app.get('/', (req, res) => {
+//   res.render(path.join(`${__dirname}/dist/index.html`));
+// });
+
 const express = require('express');
 const path = require('path');
-const history = require('connect-history-api-fallback');
+const serveStatic = require('serve-static');
 
-const app = express();
+app = express();
 
-const staticFileMiddleware = express.static(path.join(`${__dirname}/dist`));
+app.use(serveStatic(`${__dirname}/dist`));
 
-app.use(staticFileMiddleware);
-app.use(history({
-  disableDotRule: true,
-  verbose: true,
-}));
-app.use(staticFileMiddleware);
+const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.render(path.join(`${__dirname}/dist/index.html`));
-});
+app.listen(port);
+
+console.log(`server started ${port}`);
