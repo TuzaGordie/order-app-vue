@@ -20,7 +20,7 @@ export default {
     },
     register({ commit, state }) {
       commit('setRegisterError', null);
-      return HTTP().post('/auth/register', {
+      return HTTP().post('auth/register', {
         email: state.registerEmail,
         password: state.registerPassword,
       })
