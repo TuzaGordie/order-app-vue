@@ -8,6 +8,7 @@ export default () => {
     timeout: 5000,
     headers: {
       Authorization: `Bearer ${store.state.authentication.token}`,
+      'Content-Type': 'application/json',
     },
   });
 };
