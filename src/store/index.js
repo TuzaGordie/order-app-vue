@@ -11,7 +11,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
   state: {
-    baseUrl: 'simple-order-app.herokuapp.com',
+    baseUrl: '/api',
   },
   modules: {
     authentication,
