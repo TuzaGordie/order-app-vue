@@ -6,10 +6,10 @@ export default {
   namespaced: true,
   state: {
     registerEmail: 'ninja@mail.com',
-    registerPassword: 'world',
+    registerPassword: 'ninja',
     registerError: null,
     loginEmail: 'ninja@mail.com',
-    loginPassword: 'world',
+    loginPassword: 'ninja',
     loginError: null,
     token: null,
   },

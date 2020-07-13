@@ -2,7 +2,7 @@
   <v-container class="register">
     <v-layout row wrap>
       <v-flex xs6 offset-xs3>
-        <h1>Regsiter</h1>
+        <h1>Register</h1>
         <v-text-field label="Email" placeholder="Email" :value="registerEmail"
         @input="setRegisterEmail"
         >
