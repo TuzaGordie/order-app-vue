@@ -67,6 +67,7 @@ export default {
 <style>
 .order {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .icon {
