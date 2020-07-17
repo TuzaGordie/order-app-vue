@@ -11,6 +11,7 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items flat>
+        <v-btn depressed color="blue lighten-2" to="/about" v-if="!isLoggedIn">About</v-btn>
         <v-btn depressed color="blue lighten-2" to="/register" v-if="!isLoggedIn">Register</v-btn>
         <v-btn depressed color="blue lighten-2" to="/login" v-if="!isLoggedIn">Login</v-btn>
         <v-btn depressed color="blue lighten-2" v-if="isLoggedIn" @click="logout">
