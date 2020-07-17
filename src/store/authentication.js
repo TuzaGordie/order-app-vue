@@ -5,11 +5,11 @@ import HTTP from '../http';
 export default {
   namespaced: true,
   state: {
-    registerEmail: 'ninja@mail.com',
-    registerPassword: 'ninja',
+    registerEmail: 'gordie2u@gmail.com',
+    registerPassword: 'qwerty',
     registerError: null,
-    loginEmail: 'ninja@mail.com',
-    loginPassword: 'ninja',
+    loginEmail: 'gordie29@gmail.com',
+    loginPassword: 'qwerty',
     loginError: null,
     token: null,
   },
