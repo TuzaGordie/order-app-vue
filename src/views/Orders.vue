@@ -2,7 +2,7 @@
   <v-container class="home">
     <v-layout class="order">
       <v-flex class="left-order">
-        <Orders></Orders>
+        <Orders class="order"></Orders>
       </v-flex>
       <v-flex class="right-order" v-if="currentOrder">
         <Items></Items>
@@ -48,13 +48,6 @@ export default {
   margin-right: 1rem;
 }
 
-.spacer {
-  min-height: 5px;
-  height: 5px;
-  min-width: 5px;
-  width: 5px;
-}
-
 @media only screen and (max-width: 650px) {
   .order {
     justify-content: space-between;
@@ -70,5 +63,6 @@ export default {
     margin-bottom: 1rem;
     width: 100%;
   }
+
 }
 </style>

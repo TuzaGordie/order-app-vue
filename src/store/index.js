@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-// import createPersistedState from 'vuex-persistedstate';
+import createPersistedState from 'vuex-persistedstate';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import authentication from './authentication';
@@ -23,6 +23,6 @@ export default new Vuex.Store({
   actions: {
   },
   plugins: [
-    // createPersistedState(),
+    createPersistedState(),
   ],
 });
