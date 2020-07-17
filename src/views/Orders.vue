@@ -1,11 +1,10 @@
  <template>
   <v-container class="home">
-    <v-layout>
-      <v-flex xs4>
+    <v-layout class="order">
+      <v-flex class="left-order">
         <Orders></Orders>
       </v-flex>
-
-      <v-flex xs8 class="pl-4" v-if="currentOrder">
+      <v-flex class="right-order" v-if="currentOrder">
         <Items></Items>
       </v-flex>
     </v-layout>
@@ -41,5 +40,35 @@ export default {
 <style>
 .home {
   margin-top: 100px;
+}
+
+.left-order {
+  width: 2%;
+  min-width: 2%;
+  margin-right: 1rem;
+}
+
+.spacer {
+  min-height: 5px;
+  height: 5px;
+  min-width: 5px;
+  width: 5px;
+}
+
+@media only screen and (max-width: 650px) {
+  .order {
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .left-order {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+    .right-order {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
 }
 </style>
